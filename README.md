@@ -23,11 +23,11 @@ git clone https://github.com/carlosaol/CE_Assignement.git
     ```
 ### 3. Open the Jupyter Notebbok, once you run the docker file you should see the links to the server in your terminal, just click or copy to to your browser
 
-    ![image](https://github.com/user-attachments/assets/729e438d-d4a1-4581-854a-d52fd4b3878b)
+![image](https://github.com/user-attachments/assets/729e438d-d4a1-4581-854a-d52fd4b3878b)
 
 ### 4. Open the Notebook First_Neural_Network and follow the instructions
 
-    ![image](https://github.com/user-attachments/assets/fe4761ec-bc66-4261-8f10-8ab0fb2059f7)
+   ![image](https://github.com/user-attachments/assets/fe4761ec-bc66-4261-8f10-8ab0fb2059f7)
 
   
 
