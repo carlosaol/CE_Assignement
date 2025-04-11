@@ -9,12 +9,10 @@ global test_func
 class test_init_layer(unittest.TestCase):
     
     def test_return(self):
-        global test_func
         ret = test_func(2,3)
         self.assertIsNotNone(ret,msg = "fuction doesn't return anything")
         
     def test_shape(self):
-        global test_func
         l1=np.random.randint(10)
         l2=np.random.randint(10)
         w,b= test_func(l1,l2)
@@ -22,7 +20,6 @@ class test_init_layer(unittest.TestCase):
         self.assertEqual(b.shape,(l2,1),msg ='the weights shape is incorrect')
 
     def test_distribution(self):
-        global test_func
         w,b=test_func(4,6)
         self.assertLessEqual(abs(w.mean()),1 , msg = "mean of the weights should be less than one")
         self.assertLessEqual(abs(b.mean()),1 , msg =  "mean  of the bias should be less or equal than one")
@@ -31,7 +28,6 @@ class test_init_layer(unittest.TestCase):
         self.assertNotEqual(b.std(),0 , msg = "all your vales are equal")
 
 class test_preactivation(unittest.TestCase):
-    #global variables
     def get_random_weights(self):
         l1=np.random.randint(3,10)
         l2=np.random.randint(3,10)
@@ -42,19 +38,16 @@ class test_preactivation(unittest.TestCase):
         return w,b,x
     
     def test_return(self):
-        global test_func
         w,b,x = self.get_random_weights()
         ret = test_func(w,b,x)
         self.assertIsNotNone(ret,msg = "fuction doesn't return anything")
 
     def test_shape(self):
-        global test_func
         w,b,x = self.get_random_weights()
         z = test_func(w,b,x)
         self.assertEqual(z.shape,(len(b),1),msg ='the activation output shape is incorrect, review the matrix order')
 
     def test_known_values(self):
-        global test_func
         w = np.array([[2,4],[3,5]])
         b = np.array([[0],[-6]])
         x= np.array([[2],[4]])
@@ -64,7 +57,6 @@ class test_preactivation(unittest.TestCase):
         self.assertEqual(is_equal,True, msg ='result is not correct, review the equations')
 
     def test_random_values(self):
-        global test_func
         w,b,x = self.get_random_weights()
         z = test_func(w,b,x)
         expected = np.dot(w,x)+b
@@ -73,7 +65,6 @@ class test_preactivation(unittest.TestCase):
 
 
 class test_relu(unittest.TestCase): 
-    global test_func
     def test_return(self):
         ret = test_func(10)
         self.assertIsNotNone(ret,msg = "fuction doesn't return anything")
@@ -99,7 +90,6 @@ class test_relu(unittest.TestCase):
         self.assertEqual(ret,0, msg = 'the output is incorrect for large negative values')
 
 class test_relu_prime(unittest.TestCase):  
-    global test_func
     def test_return(self):
         ret = test_func(10)
         self.assertIsNotNone(ret,msg = "fuction doesn't return anything")
@@ -126,12 +116,10 @@ class test_relu_prime(unittest.TestCase):
 
 class test_sigmoid(unittest.TestCase): 
     def test_return(self):
-        global test_func
         ret = test_func(10)
         self.assertIsNotNone(ret,msg = "fuction doesn't return anything")
         
     def test_positive(self):
-        global test_func
         ret = test_func(0)
         self.assertEqual(ret,0.5, msg = 'the output is incorrect')
         ret = test_func(np.log(2))
@@ -141,7 +129,6 @@ class test_sigmoid(unittest.TestCase):
         self.assertEqual(ret,1, msg = 'the output is incorrect for large positive values')
 
     def test_negative(self):
-        global test_func
         ret = test_func(-np.log(2))
         self.assertAlmostEqual(ret,1/3, places=4, msg= 'the output is incorrect for negative values')
         ret = test_func(-np.log(4))
@@ -152,12 +139,10 @@ class test_sigmoid(unittest.TestCase):
 
 class test_sigmoid_prime(unittest.TestCase):   
     def test_return(self):
-        global test_func
         ret =  test_func(10)
         self.assertIsNotNone(ret,msg = "fuction doesn't return anything")
         
     def test_positive(self):
-        global test_func
         ret =  test_func(0)
         self.assertEqual(ret,0.25, msg = 'the output is incorrect for positive values')
         ret =  test_func(np.log(2))
@@ -167,7 +152,6 @@ class test_sigmoid_prime(unittest.TestCase):
         self.assertEqual(ret,0, msg = 'the output is incorrect for large positive values')
 
     def test_negative(self):
-        global test_func
         ret =  test_func(-np.log(2))
         self.assertAlmostEqual(ret,2/9 , places=4, msg= 'the output is incorrect for negative values')
         ret =  test_func(-np.log(4))
@@ -185,9 +169,7 @@ Tests={ 'test_init_layer'    : test_init_layer,
 
 def printmd(string):
     display(Markdown(string))
-    #suite = unittest.TestSuite()
-    #suite.addTest(test_init_layer(func))
-    #unittest.TextTestRunner(verbosity=2).run(suite)
+
 def run_check(check_name, func):
     global test_func
 
