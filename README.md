@@ -27,7 +27,8 @@ git clone https://github.com/carlosaol/CE_Assignement.git
 
 ### 4. Open the Notebook First_Neural_Network and follow the instructions
 
-   ![image](https://github.com/user-attachments/assets/fe4761ec-bc66-4261-8f10-8ab0fb2059f7)
+![image](https://github.com/user-attachments/assets/b21c2b7d-9cb1-41fe-8ecb-1f056da7c5a0)
+
 
   
 
