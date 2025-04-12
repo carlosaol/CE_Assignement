@@ -24,8 +24,8 @@ class test_init_layer(unittest.TestCase):
         self.assertLessEqual(abs(w.mean()),1 , msg = "mean of the weights should be less than one")
         self.assertLessEqual(abs(b.mean()),1 , msg =  "mean  of the bias should be less or equal than one")
 
-        self.assertNotEqual(w.std(),0 , msg = "all your vales are equal")
-        self.assertNotEqual(b.std(),0 , msg = "all your vales are equal")
+        self.assertNotEqual(w.std(),0 , msg = "all your values are equal")
+        self.assertNotEqual(b.std(),0 , msg = "all your values are equal")
 
 class test_preactivation(unittest.TestCase):
     def get_random_weights(self):
